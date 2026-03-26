@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<!-- saved from url=(0059)file:///Users/macbookpro/Downloads/kone_analysis%20(2).html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KONE Financial Analysis — Chau Minh Tran</title>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link href="./KONE Financial Analysis — Chau Minh Tran_files/css2" rel="stylesheet">
+<script src="./KONE Financial Analysis — Chau Minh Tran_files/chart.umd.min.js"></script>
+<style>
+:root{
+  --black:#f4f6fb;--dark:#eef1f8;--dark2:#e8ecf5;--panel:#ffffff;
+  --red:#1a4fd6;--red2:#3b6ef5;--red-dim:rgba(26,79,214,0.08);
+  --white:#1e2a3a;--muted:#5a6a80;--border:rgba(26,79,214,0.18);
+  --border-dim:rgba(26,79,214,0.1);--green:#15803d;--amber:#b45309;
+  --font-head:'Orbitron',monospace;--font-body:'Inter',sans-serif;
+  --font-mono:'JetBrains Mono',monospace;
+  --glow:0 2px 16px rgba(26,79,214,0.18);--glow-sm:0 1px 8px rgba(26,79,214,0.12);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:#f4f6fb;color:#1e2a3a;font-family:var(--font-body);font-size:14px;line-height:1.7;overflow-x:hidden;}
+body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.025) 2px,rgba(26,79,214,0.012) 4px);pointer-events:none;z-index:9998;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.94);backdrop-filter:blur(16px);border-bottom:1px solid rgba(26,79,214,0.15);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:60px;}
+.nav-logo{font-family:var(--font-head);font-size:0.8rem;font-weight:700;color:#1a4fd6;letter-spacing:0.12em;text-transform:uppercase;}
+.nav-logo span{color:#1e2a3a;}
+.nav-back{font-family:var(--font-mono);font-size:11px;color:#5a6a80;text-decoration:none;display:flex;align-items:center;gap:0.5rem;letter-spacing:0.08em;transition:color 0.2s;}
+.nav-back:hover{color:var(--red);}
+.nav-tabs{display:flex;gap:0;list-style:none;}
+.nav-tabs a{font-family:var(--font-mono);font-size:10px;color:#5a6a80;text-decoration:none;padding:0 1.2rem;height:60px;display:flex;align-items:center;letter-spacing:0.08em;text-transform:uppercase;border-bottom:2px solid transparent;transition:all 0.2s;}
+.nav-tabs a:hover,.nav-tabs a.active{color:#1a4fd6;border-bottom-color:#1a4fd6;}
+
+/* HERO */
+#hero{background:linear-gradient(155deg,#0f1e3d 0%,#162650 50%,#1a2e5e 100%);padding:100px 5% 60px;position:relative;overflow:hidden;}
+.hero-glow{position:absolute;top:-20%;right:-5%;width:500px;height:500px;background:radial-gradient(circle,rgba(59,110,245,0.15) 0%,transparent 65%);border-radius:50%;pointer-events:none;}
+.hero-inner{max-width:1100px;margin:0 auto;position:relative;z-index:1;}
+.hero-breadcrumb{font-family:var(--font-mono);font-size:10px;color:rgba(255,255,255,0.5);letter-spacing:0.1em;margin-bottom:1rem;}
+.hero-breadcrumb span{color:#7eb3ff;}
+.hero-title{font-family:var(--font-head);font-size:clamp(1.6rem,4vw,2.8rem);font-weight:900;color:#ffffff;text-transform:uppercase;letter-spacing:0.08em;line-height:1.1;margin-bottom:0.8rem;}
+.hero-title .red{color:#7eb3ff;text-shadow:none;}
+.hero-sub{font-family:var(--font-mono);font-size:11px;color:rgba(255,255,255,0.5);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:2rem;}
+.hero-kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);margin-top:2rem;}
+.hero-kpi{background:rgba(255,255,255,0.08);padding:1.2rem 1rem;text-align:center;}
+.hero-kpi-val{font-family:var(--font-head);font-size:1.3rem;font-weight:700;color:#7eb3ff;line-height:1;text-shadow:var(--glow-sm);}
+.hero-kpi-label{font-family:var(--font-mono);font-size:9px;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.08em;margin-top:0.4rem;}
+.hero-kpi-delta{font-family:var(--font-mono);font-size:9px;margin-top:0.2rem;}
+.dg{color:#4ade80;}.dr{color:#f87171;}.da{color:#fbbf24;}
+
+/* SECTION TABS */
+.tab-nav{background:#f4f6fb;border-bottom:1px solid rgba(26,79,214,0.12);padding:0 5%;display:flex;gap:0;position:sticky;top:60px;z-index:90;}
+.tab-btn{font-family:var(--font-mono);font-size:10px;color:#5a6a80;padding:1rem 1.5rem;cursor:pointer;border:none;background:none;border-bottom:2px solid transparent;letter-spacing:0.1em;text-transform:uppercase;transition:all 0.2s;white-space:nowrap;}
+.tab-btn:hover{color:#1e2a3a;}
+.tab-btn.active{color:#1a4fd6;border-bottom-color:#1a4fd6;}
+
+/* MAIN CONTENT */
+.main{max-width:1100px;margin:0 auto;padding:4rem 5%;}
+.tab-section{display:none;}
+.tab-section.active{display:block;}
+
+/* SECTION HEADER */
+.sec-header{margin-bottom:2.5rem;}
+.sec-eyebrow{font-family:var(--font-mono);font-size:9px;color:#1a4fd6;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:0.4rem;display:flex;align-items:center;gap:0.6rem;}
+.sec-eyebrow::before{content:'';width:16px;height:1px;background:var(--red);display:block;}
+.sec-title{font-family:var(--font-head);font-size:1.4rem;font-weight:700;color:#1e2a3a;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.5rem;}
+.sec-desc{font-size:13px;color:#5a6a80;max-width:600px;line-height:1.8;}
+
+/* CHART GRID */
+.chart-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:1.5rem;}
+.chart-grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-bottom:1.5rem;}
+.chart-full{margin-bottom:1.5rem;}
+.chart-box{background:#ffffff;border:1px solid var(--border-dim);padding:1.5rem;position:relative;}
+.chart-box::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,#1a4fd6,transparent);opacity:0.5;}
+.chart-title{font-family:var(--font-mono);font-size:10px;color:#1e2a3a;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.3rem;}
+.chart-sub{font-family:var(--font-mono);font-size:9px;color:#8892a4;margin-bottom:1.2rem;letter-spacing:0.06em;}
+.chart-wrap{position:relative;height:220px;}
+.chart-wrap-sm{position:relative;height:170px;}
+.chart-wrap-lg{position:relative;height:300px;}
+
+/* INSIGHT CARDS */
+.insights{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1.5rem;}
+.insight-card{background:#f0f4ff;border:1px solid var(--border-dim);padding:1.2rem;}
+.insight-val{font-family:var(--font-head);font-size:1.5rem;font-weight:700;line-height:1;margin-bottom:0.3rem;}
+.insight-label{font-family:var(--font-mono);font-size:9px;color:#8892a4;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.4rem;}
+.insight-desc{font-size:11px;color:#5a6a80;line-height:1.6;}
+
+/* TABLE */
+.data-table{width:100%;border-collapse:collapse;font-family:var(--font-mono);font-size:11px;}
+.data-table th{background:#f0f4ff;color:#1a4fd6;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;padding:0.7rem 1rem;text-align:left;border-bottom:1px solid var(--border);}
+.data-table td{padding:0.65rem 1rem;border-bottom:1px solid rgba(26,79,214,0.08);color:#5a6a80;}
+.data-table tr:hover td{background:rgba(26,79,214,0.04);color:#1e2a3a;}
+.data-table .val-pos{color:var(--green);font-weight:600;}
+.data-table .val-neg{color:#dc2626;font-weight:600;}
+.data-table .val-neu{color:#1e2a3a;font-weight:600;}
+.data-table .val-amber{color:#b45309;font-weight:600;}
+.table-wrap{background:#ffffff;border:1px solid var(--border-dim);overflow:hidden;margin-bottom:1.5rem;}
+
+/* VARIANCE BAR */
+.var-bar-wrap{display:flex;align-items:center;gap:0.8rem;}
+.var-bar{height:6px;border-radius:1px;min-width:4px;}
+.var-pos{background:var(--green);}
+.var-neg{background:var(--red);}
+
+/* FORECAST LEGEND */
+.legend-row{display:flex;gap:1.5rem;margin-bottom:1rem;flex-wrap:wrap;}
+.legend-item{display:flex;align-items:center;gap:0.5rem;font-family:var(--font-mono);font-size:10px;color:#8892a4;}
+.legend-dot{width:10px;height:3px;border-radius:1px;}
+
+/* STATUS BADGE */
+.badge{display:inline-block;font-family:var(--font-mono);font-size:9px;font-weight:700;padding:0.2rem 0.6rem;letter-spacing:0.08em;text-transform:uppercase;}
+.badge-green{background:rgba(34,197,94,0.15);color:var(--green);border:1px solid rgba(34,197,94,0.3);}
+.badge-red{background:rgba(220,38,38,0.08);color:#dc2626;border:1px solid var(--border);}
+.badge-amber{background:rgba(245,158,11,0.15);color:var(--amber);border:1px solid rgba(245,158,11,0.3);}
+
+/* DIVIDER */
+.section-divider{border:none;border-top:1px solid rgba(26,79,214,0.1);margin:2rem 0;}
+
+footer{background:#0a1530;padding:1.5rem 5%;display:flex;align-items:center;justify-content:space-between;font-family:var(--font-mono);font-size:10px;color:var(--muted);border-top:1px solid var(--border-dim);letter-spacing:0.08em;margin-top:4rem;}
+footer span:last-child{color:#7eb3ff;}
+
+@media(max-width:768px){
+  .hero-kpis{grid-template-columns:repeat(2,1fr);}
+  .chart-grid-2,.chart-grid-3,.insights{grid-template-columns:1fr;}
+  .tab-nav{overflow-x:auto;}
+  .tab-btn{padding:1rem 0.8rem;font-size:9px;}
+  nav{padding:0 1.5rem;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">CMT<span>_</span>ANALYSIS</div>
+  <ul class="nav-tabs">
+    <li><a href="file:///Users/macbookpro/Downloads/kone_analysis%20(2).html#" class="tab-link active" data-tab="revenue">Revenue</a></li>
+    <li><a href="file:///Users/macbookpro/Downloads/kone_analysis%20(2).html#" class="tab-link" data-tab="forecast">Forecast</a></li>
+    <li><a href="file:///Users/macbookpro/Downloads/kone_analysis%20(2).html#" class="tab-link" data-tab="cost">Cost Structure</a></li>
+    <li><a href="file:///Users/macbookpro/Downloads/kone_analysis%20(2).html#" class="tab-link" data-tab="pl">P&amp;L Variance</a></li>
+  </ul>
+  <a href="file:///Users/macbookpro/Downloads/portfolio.html" class="nav-back">← Back to Portfolio</a>
+</nav>
+
+<!-- HERO -->
+<div id="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div class="hero-breadcrumb">Portfolio <span>/</span> Projects <span>/</span> KONE Financial Analysis</div>
+    <h1 class="hero-title">KONE <span class="red">Financial</span> Analysis</h1>
+    <p class="hero-sub">// Revenue Performance · Budget Forecast · Cost Structure · P&amp;L Variance — FY2024</p>
+    <div class="hero-kpis">
+      <div class="hero-kpi"><div class="hero-kpi-val">€13.8B</div><div class="hero-kpi-label">Total Revenue</div><div class="hero-kpi-delta dg">▲ 4.2% YoY</div></div>
+      <div class="hero-kpi"><div class="hero-kpi-val">16.2%</div><div class="hero-kpi-label">EBIT Margin</div><div class="hero-kpi-delta dg">▲ 0.8pp</div></div>
+      <div class="hero-kpi"><div class="hero-kpi-val">€1.8B</div><div class="hero-kpi-label">Free Cash Flow</div><div class="hero-kpi-delta dg">▲ 6.1%</div></div>
+      <div class="hero-kpi"><div class="hero-kpi-val">3.88%</div><div class="hero-kpi-label">Dividend Yield</div><div class="hero-kpi-delta da">▬ Stable</div></div>
+      <div class="hero-kpi"><div class="hero-kpi-val">26x</div><div class="hero-kpi-label">P/E Ratio</div><div class="hero-kpi-delta dr">▼ -2x vs peer avg</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- TAB NAV -->
+<div class="tab-nav">
+  <button class="tab-btn active" data-tab="revenue">■ Revenue Performance</button>
+  <button class="tab-btn" data-tab="forecast">■ Budget Forecast</button>
+  <button class="tab-btn" data-tab="cost">■ Cost Structure</button>
+  <button class="tab-btn" data-tab="pl">■ P&amp;L Variance</button>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+<!-- ============ TAB 1: REVENUE ============ -->
+<div class="tab-section active" id="tab-revenue">
+  <div class="sec-header">
+    <div class="sec-eyebrow">Revenue Performance</div>
+    <div class="sec-title">KONE Revenue Analysis — FY2015 to FY2024</div>
+    <div class="sec-desc">10-year revenue trend analysis showing KONE's growth trajectory, segment breakdown, and geographic distribution across key markets.</div>
+  </div>
+
+  <div class="insights">
+    <div class="insight-card"><div class="insight-label">10Y Revenue CAGR</div><div class="insight-val" style="color:var(--green)">4.1%</div><div class="insight-desc">Steady top-line growth aligned with global GDP, driven by urbanisation and maintenance base expansion.</div></div>
+    <div class="insight-card"><div class="insight-label">Maintenance Share</div><div class="insight-val" style="color:var(--red)">55%</div><div class="insight-desc">Recurring maintenance revenue provides stability, buffering against cyclical new equipment slowdowns.</div></div>
+    <div class="insight-card"><div class="insight-label">China New Installs</div><div class="insight-val" style="color:var(--amber)">59%</div><div class="insight-desc">Significant geographic concentration risk in Chinese property market — key headwind since 2022.</div></div>
+  </div>
+
+  <div class="chart-full chart-box">
+    <div class="chart-title">Annual Revenue — FY2015 to FY2024 (€B)</div>
+    <div class="chart-sub">Total revenue vs EBIT margin overlay</div>
+    <div class="chart-wrap-lg"><canvas id="revenueChart" style="box-sizing: border-box; display: block; height: 300px; width: 796px;" width="1593" height="600"></canvas></div>
+  </div>
+
+  <div class="chart-grid-2">
+    <div class="chart-box">
+      <div class="chart-title">Revenue by Segment — FY2024</div>
+      <div class="chart-sub">New equipment, maintenance, modernisation</div>
+      <div class="chart-wrap"><canvas id="segmentChart" style="box-sizing: border-box; display: block; height: 220px; width: 361px;" width="723" height="440"></canvas></div>
+    </div>
+    <div class="chart-box">
+      <div class="chart-title">Geographic Revenue Split — FY2024</div>
+      <div class="chart-sub">Asia-Pacific, EMEA, Americas</div>
+      <div class="chart-wrap"><canvas id="geoChart" style="box-sizing: border-box; display: block; height: 220px; width: 361px;" width="723" height="440"></canvas></div>
+    </div>
+  </div>
+
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead><tr><th>Year</th><th>Revenue (€B)</th><th>YoY Growth</th><th>Gross Margin</th><th>EBIT (€M)</th><th>EBIT Margin</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>FY2024</td><td class="val-neu">13.8</td><td class="val-pos">+4.2%</td><td class="val-pos">32.1%</td><td class="val-neu">2,236</td><td class="val-pos">16.2%</td><td><span class="badge badge-green">On Track</span></td></tr>
+        <tr><td>FY2023</td><td class="val-neu">13.2</td><td class="val-pos">+3.1%</td><td class="val-pos">31.4%</td><td class="val-neu">2,048</td><td class="val-pos">15.5%</td><td><span class="badge badge-green">Recovery</span></td></tr>
+        <tr><td>FY2022</td><td class="val-neu">12.8</td><td class="val-neg">-1.2%</td><td class="val-neg">29.8%</td><td class="val-neu">1,740</td><td class="val-neg">13.6%</td><td><span class="badge badge-red">Headwind</span></td></tr>
+        <tr><td>FY2021</td><td class="val-neu">12.9</td><td class="val-pos">+8.4%</td><td class="val-pos">30.5%</td><td class="val-neu">1,930</td><td class="val-pos">15.0%</td><td><span class="badge badge-green">Rebound</span></td></tr>
+        <tr><td>FY2020</td><td class="val-neu">11.9</td><td class="val-neg">-4.7%</td><td class="val-pos">30.9%</td><td class="val-neu">1,800</td><td class="val-pos">15.1%</td><td><span class="badge badge-amber">COVID Impact</span></td></tr>
+        <tr><td>FY2019</td><td class="val-neu">12.5</td><td class="val-pos">+5.0%</td><td class="val-pos">31.8%</td><td class="val-neu">2,050</td><td class="val-pos">16.4%</td><td><span class="badge badge-green">Strong</span></td></tr>
+        <tr><td>FY2018</td><td class="val-neu">11.9</td><td class="val-pos">+4.4%</td><td class="val-pos">31.5%</td><td class="val-neu">1,920</td><td class="val-pos">16.1%</td><td><span class="badge badge-green">Strong</span></td></tr>
+        <tr><td>FY2015</td><td class="val-neu">8.6</td><td class="val-pos">+2.1%</td><td class="val-pos">30.2%</td><td class="val-neu">1,290</td><td class="val-pos">15.0%</td><td><span class="badge badge-green">Baseline</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ============ TAB 2: FORECAST ============ -->
+<div class="tab-section" id="tab-forecast">
+  <div class="sec-header">
+    <div class="sec-eyebrow">Budget Forecast</div>
+    <div class="sec-title">Rolling 12-Month Revenue Forecast — FY2025–2026</div>
+    <div class="sec-desc">Forecast model using time-series analysis (Prophet) applied to KONE's historical revenue, incorporating management guidance of 0–5% growth and EBIT margin target of 16%.</div>
+  </div>
+
+  <div class="insights">
+    <div class="insight-card"><div class="insight-label">Base Case Forecast</div><div class="insight-val" style="color:var(--green)">€14.4B</div><div class="insight-desc">FY2025 base case at +4.5% growth, assuming stable maintenance revenue and moderate China recovery.</div></div>
+    <div class="insight-card"><div class="insight-label">Bear Case Forecast</div><div class="insight-val" style="color:var(--red)">€13.6B</div><div class="insight-desc">Bear scenario at -1.5% — continued China property weakness, supply chain pressure, margin compression.</div></div>
+    <div class="insight-card"><div class="insight-label">Bull Case Forecast</div><div class="insight-val" style="color:var(--amber)">€15.1B</div><div class="insight-desc">Bull case at +9.4% — China recovery, new equipment growth in emerging markets, margin expansion to 17%+.</div></div>
+  </div>
+
+  <div class="chart-full chart-box">
+    <div class="chart-title">Revenue Forecast — Actual vs Projected (Base / Bull / Bear)</div>
+    <div class="chart-sub">Monthly rolling forecast with confidence bands — FY2022 to FY2026</div>
+    <div class="legend-row">
+      <div class="legend-item"><div class="legend-dot" style="background:var(--red)"></div>Actual</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#22c55e"></div>Base Case</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--amber)"></div>Bull Case</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#6b6b80"></div>Bear Case</div>
+    </div>
+    <div class="chart-wrap-lg"><canvas id="forecastChart" width="1593" height="600" style="display: block; box-sizing: border-box; height: 300px; width: 796px;"></canvas></div>
+  </div>
+
+  <div class="chart-grid-2">
+    <div class="chart-box">
+      <div class="chart-title">Quarterly Revenue Forecast — FY2025</div>
+      <div class="chart-sub">Actual Q1–Q2 vs projected Q3–Q4</div>
+      <div class="chart-wrap"><canvas id="quarterlyChart" width="723" height="440" style="display: block; box-sizing: border-box; height: 220px; width: 361px;"></canvas></div>
+    </div>
+    <div class="chart-box">
+      <div class="chart-title">EBIT Margin Forecast — Path to 16% Target</div>
+      <div class="chart-sub">Historical margins + forecast trajectory</div>
+      <div class="chart-wrap"><canvas id="ebitChart" width="723" height="440" style="display: block; box-sizing: border-box; height: 220px; width: 361px;"></canvas></div>
+    </div>
+  </div>
+
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead><tr><th>Scenario</th><th>FY2025 Revenue</th><th>Growth</th><th>EBIT Margin</th><th>EPS (€)</th><th>Dividend (€)</th><th>Probability</th></tr></thead>
+      <tbody>
+        <tr><td class="val-pos">Bull Case</td><td class="val-pos">€15.1B</td><td class="val-pos">+9.4%</td><td class="val-pos">17.2%</td><td class="val-neu">2.38</td><td class="val-neu">1.85</td><td><span class="badge badge-amber">25%</span></td></tr>
+        <tr><td class="val-neu">Base Case</td><td class="val-neu">€14.4B</td><td class="val-pos">+4.5%</td><td class="val-pos">16.5%</td><td class="val-neu">2.14</td><td class="val-neu">1.72</td><td><span class="badge badge-green">55%</span></td></tr>
+        <tr><td class="val-neg">Bear Case</td><td class="val-neg">€13.6B</td><td class="val-neg">-1.5%</td><td class="val-neg">14.8%</td><td class="val-neu">1.88</td><td class="val-neu">1.60</td><td><span class="badge badge-red">20%</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ============ TAB 3: COST STRUCTURE ============ -->
+<div class="tab-section" id="tab-cost">
+  <div class="sec-header">
+    <div class="sec-eyebrow">Cost Structure Analysis</div>
+    <div class="sec-title">Operating Cost Breakdown — FY2024</div>
+    <div class="sec-desc">Detailed decomposition of KONE's cost base across cost of goods sold, R&amp;D, SG&amp;A, and capital expenditure — with trend analysis over the past five years.</div>
+  </div>
+
+  <div class="insights">
+    <div class="insight-card"><div class="insight-label">Cost of Revenue</div><div class="insight-val" style="color:var(--red)">67.9%</div><div class="insight-desc">Material and labour costs as % of revenue. Improved 1.3pp YoY driven by pricing discipline and supply chain normalisation.</div></div>
+    <div class="insight-card"><div class="insight-label">SG&amp;A Ratio</div><div class="insight-val" style="color:var(--amber)">10.4%</div><div class="insight-desc">Selling, general &amp; administrative costs — stable vs prior year. Management focused on cost discipline to reach 16% EBIT target.</div></div>
+    <div class="insight-card"><div class="insight-label">R&amp;D Spend</div><div class="insight-val" style="color:var(--green)">2.1%</div><div class="insight-desc">Research &amp; development investment focused on digital services, IoT connectivity, and energy-efficient product development.</div></div>
+  </div>
+
+  <div class="chart-grid-2">
+    <div class="chart-box">
+      <div class="chart-title">Cost Structure Breakdown — FY2024</div>
+      <div class="chart-sub">% of total revenue by cost category</div>
+      <div class="chart-wrap"><canvas id="costDonutChart" width="723" height="440" style="display: block; box-sizing: border-box; height: 220px; width: 361px;"></canvas></div>
+    </div>
+    <div class="chart-box">
+      <div class="chart-title">Cost Trend — FY2020 to FY2024</div>
+      <div class="chart-sub">Key cost ratios as % of revenue</div>
+      <div class="chart-wrap"><canvas id="costTrendChart" width="723" height="440" style="display: block; box-sizing: border-box; height: 220px; width: 361px;"></canvas></div>
+    </div>
+  </div>
+
+  <div class="chart-full chart-box">
+    <div class="chart-title">OpEx vs CapEx — Absolute Values (€M) FY2020–FY2024</div>
+    <div class="chart-sub">Operating expenditure and capital expenditure by year</div>
+    <div class="chart-wrap-lg"><canvas id="opexCapexChart" width="1593" height="600" style="display: block; box-sizing: border-box; height: 300px; width: 796px;"></canvas></div>
+  </div>
+
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead><tr><th>Cost Category</th><th>FY2024 (€M)</th><th>% Revenue</th><th>FY2023 (€M)</th><th>YoY Change</th><th>Trend</th></tr></thead>
+      <tbody>
+        <tr><td>Cost of Revenue</td><td class="val-neu">9,372</td><td class="val-neg">67.9%</td><td class="val-neu">9,168</td><td class="val-pos">-1.3pp</td><td><span class="badge badge-green">Improving</span></td></tr>
+        <tr><td>SG&amp;A</td><td class="val-neu">1,435</td><td class="val-neu">10.4%</td><td class="val-neu">1,373</td><td class="val-amber">+0.1pp</td><td><span class="badge badge-amber">Stable</span></td></tr>
+        <tr><td>R&amp;D</td><td class="val-neu">290</td><td class="val-neu">2.1%</td><td class="val-neu">264</td><td class="val-pos">+0.2pp</td><td><span class="badge badge-green">Investing</span></td></tr>
+        <tr><td>Depreciation &amp; Amort.</td><td class="val-neu">497</td><td class="val-neu">3.6%</td><td class="val-neu">462</td><td class="val-neu">flat</td><td><span class="badge badge-amber">Stable</span></td></tr>
+        <tr><td>CapEx</td><td class="val-neu">345</td><td class="val-pos">2.5%</td><td class="val-neu">317</td><td class="val-neg">+0.2pp</td><td><span class="badge badge-amber">Moderate</span></td></tr>
+        <tr><td><strong>Total Operating Costs</strong></td><td class="val-neu"><strong>11,594</strong></td><td class="val-neg"><strong>83.8%</strong></td><td class="val-neu"><strong>11,267</strong></td><td class="val-pos"><strong>-1.0pp</strong></td><td><span class="badge badge-green">Improving</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ============ TAB 4: P&L VARIANCE ============ -->
+<div class="tab-section" id="tab-pl">
+  <div class="sec-header">
+    <div class="sec-eyebrow">P&amp;L Variance Report</div>
+    <div class="sec-title">Monthly Actuals vs Budget — FY2024</div>
+    <div class="sec-desc">Department-level P&amp;L variance analysis comparing actual results against budget, identifying over/under performance by line item and business unit.</div>
+  </div>
+
+  <div class="insights">
+    <div class="insight-card"><div class="insight-label">Revenue vs Budget</div><div class="insight-val" style="color:var(--green)">+€142M</div><div class="insight-desc">+1.0% favorable variance. Maintenance outperformed by +3.2%; new equipment underperformed by -2.1% vs budget.</div></div>
+    <div class="insight-card"><div class="insight-label">EBIT vs Budget</div><div class="insight-val" style="color:var(--green)">+€86M</div><div class="insight-desc">+4.0% favorable. Cost discipline and FX tailwinds delivered above-budget EBIT despite mix headwinds.</div></div>
+    <div class="insight-card"><div class="insight-label">Largest Shortfall</div><div class="insight-val" style="color:var(--red)">-€98M</div><div class="insight-desc">Asia-Pacific new equipment revenue missed budget by 8.2%, driven by continued China property market weakness.</div></div>
+  </div>
+
+  <div class="chart-full chart-box">
+    <div class="chart-title">Monthly Revenue — Actual vs Budget vs Prior Year (€M)</div>
+    <div class="chart-sub">Full-year FY2024 monthly performance</div>
+    <div class="legend-row">
+      <div class="legend-item"><div class="legend-dot" style="background:var(--red)"></div>Actual</div>
+      <div class="legend-item"><div class="legend-dot" style="background:rgba(224,20,42,0.3)"></div>Budget</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#6b6b80"></div>Prior Year</div>
+    </div>
+    <div class="chart-wrap-lg"><canvas id="plMonthlyChart" width="1593" height="600" style="display: block; box-sizing: border-box; height: 300px; width: 796px;"></canvas></div>
+  </div>
+
+  <div class="chart-grid-2">
+    <div class="chart-box">
+      <div class="chart-title">Variance by Business Unit (€M)</div>
+      <div class="chart-sub">Actual vs budget delta by region/segment</div>
+      <div class="chart-wrap"><canvas id="varianceChart" width="723" height="440" style="display: block; box-sizing: border-box; height: 220px; width: 361px;"></canvas></div>
+    </div>
+    <div class="chart-box">
+      <div class="chart-title">P&amp;L Waterfall — FY2024 Budget to Actual</div>
+      <div class="chart-sub">Bridge from budget EBIT to actual EBIT</div>
+      <div class="chart-wrap"><canvas id="waterfallChart" width="723" height="440" style="display: block; box-sizing: border-box; height: 220px; width: 361px;"></canvas></div>
+    </div>
+  </div>
+
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead><tr><th>P&amp;L Line</th><th>Budget (€M)</th><th>Actual (€M)</th><th>Variance (€M)</th><th>Variance %</th><th>Flag</th></tr></thead>
+      <tbody>
+        <tr><td>Revenue</td><td>13,658</td><td class="val-neu">13,800</td><td class="val-pos">+142</td><td class="val-pos">+1.0%</td><td><span class="badge badge-green">✓ On Track</span></td></tr>
+        <tr><td>&nbsp;&nbsp;↳ New Equipment</td><td>6,146</td><td class="val-neg">6,017</td><td class="val-neg">-129</td><td class="val-neg">-2.1%</td><td><span class="badge badge-red">⚠ Below Budget</span></td></tr>
+        <tr><td>&nbsp;&nbsp;↳ Maintenance</td><td>7,512</td><td class="val-pos">7,783</td><td class="val-pos">+271</td><td class="val-pos">+3.6%</td><td><span class="badge badge-green">✓ Above Budget</span></td></tr>
+        <tr><td>Gross Profit</td><td>4,277</td><td class="val-neu">4,428</td><td class="val-pos">+151</td><td class="val-pos">+3.5%</td><td><span class="badge badge-green">✓ On Track</span></td></tr>
+        <tr><td>SG&amp;A</td><td>1,420</td><td class="val-neg">1,435</td><td class="val-neg">-15</td><td class="val-neg">-1.1%</td><td><span class="badge badge-amber">▬ Slight Miss</span></td></tr>
+        <tr><td>R&amp;D</td><td>275</td><td class="val-pos">290</td><td class="val-neg">-15</td><td class="val-neg">-5.5%</td><td><span class="badge badge-amber">▬ Planned</span></td></tr>
+        <tr><td><strong>EBIT</strong></td><td><strong>2,150</strong></td><td class="val-pos"><strong>2,236</strong></td><td class="val-pos"><strong>+86</strong></td><td class="val-pos"><strong>+4.0%</strong></td><td><span class="badge badge-green">✓ Above Budget</span></td></tr>
+        <tr><td>Net Income</td><td>1,580</td><td class="val-pos">1,644</td><td class="val-pos">+64</td><td class="val-pos">+4.1%</td><td><span class="badge badge-green">✓ Above Budget</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+</div><!-- end main -->
+
+<footer>
+  <span>© 2026 CHAU MINH TRAN</span>
+  <span>KONE FINANCIAL ANALYSIS — AALTO UNIVERSITY</span>
+  <span>CMT_ANALYSIS_v1.0</span>
+</footer>
+
+<script>
+// ── TAB SWITCHING ──
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-section').forEach(s => s.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+    setTimeout(() => initCharts(), 50);
+  });
+});
+document.querySelectorAll('.tab-link').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const tab = a.dataset.tab;
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-section').forEach(s => s.classList.remove('active'));
+    document.querySelector('.tab-btn[data-tab="'+tab+'"]').classList.add('active');
+    document.getElementById('tab-' + tab).classList.add('active');
+    setTimeout(() => initCharts(), 50);
+  });
+});
+
+// ── CHART DEFAULTS ──
+Chart.defaults.color = '#8892a4';
+Chart.defaults.borderColor = 'rgba(26,79,214,0.08)';
+Chart.defaults.font.family = "'JetBrains Mono', monospace";
+Chart.defaults.font.size = 10;
+
+const RED = '#1a4fd6', RED2 = 'rgba(26,79,214,0.2)', RED3 = 'rgba(26,79,214,0.08)';
+const GREEN = '#15803d', GREEN2 = 'rgba(21,128,61,0.15)';
+const AMBER = '#b45309', AMBER2 = 'rgba(180,83,9,0.15)';
+const GRAY = '#94a3b8', GRAY2 = 'rgba(148,163,184,0.2)';
+
+const charts = {};
+function destroyChart(id) { if(charts[id]) { charts[id].destroy(); delete charts[id]; } }
+
+function initCharts() {
+  const years = ['FY15','FY16','FY17','FY18','FY19','FY20','FY21','FY22','FY23','FY24'];
+  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+  // ── REVENUE CHART ──
+  if(document.getElementById('revenueChart') && document.getElementById('tab-revenue').classList.contains('active')) {
+    destroyChart('rev');
+    charts['rev'] = new Chart(document.getElementById('revenueChart'), {
+      type: 'bar',
+      data: {
+        labels: years,
+        datasets: [
+          { label: 'Revenue (€B)', data: [8.6,9.1,9.6,11.9,12.5,11.9,12.9,12.8,13.2,13.8], backgroundColor: RED2, borderColor: RED, borderWidth: 1.5, yAxisID: 'y' },
+          { label: 'EBIT Margin %', data: [15.0,15.2,15.8,16.1,16.4,15.1,15.0,13.6,15.5,16.2], type: 'line', borderColor: GREEN, backgroundColor: 'transparent', borderWidth: 2, pointBackgroundColor: GREEN, pointRadius: 3, yAxisID: 'y1' }
+        ]
+      },
+      options: { responsive:true, maintainAspectRatio:false, interaction:{mode:'index'}, plugins:{legend:{display:true,labels:{color:'#6b6b80',boxWidth:12,padding:16}}}, scales:{ y:{ticks:{callback:v=>'€'+v+'B'},grid:{color:'rgba(26,79,214,0.07)'}}, y1:{position:'right',ticks:{callback:v=>v+'%'},grid:{display:false}} } }
+    });
+  }
+
+  if(document.getElementById('segmentChart') && document.getElementById('tab-revenue').classList.contains('active')) {
+    destroyChart('seg');
+    charts['seg'] = new Chart(document.getElementById('segmentChart'), {
+      type: 'doughnut',
+      data: { labels: ['Maintenance','New Equipment','Modernisation'], datasets:[{ data:[55,35,10], backgroundColor:[RED,'rgba(224,20,42,0.45)','rgba(224,20,42,0.2)'], borderColor:'#0a0a10', borderWidth:3 }] },
+      options:{ responsive:true, maintainAspectRatio:false, cutout:'65%', plugins:{legend:{position:'bottom',labels:{color:'#6b6b80',padding:16,boxWidth:10}}} }
+    });
+  }
+
+  if(document.getElementById('geoChart') && document.getElementById('tab-revenue').classList.contains('active')) {
+    destroyChart('geo');
+    charts['geo'] = new Chart(document.getElementById('geoChart'), {
+      type: 'doughnut',
+      data: { labels: ['Asia-Pacific','EMEA','Americas'], datasets:[{ data:[42,40,18], backgroundColor:[RED,'rgba(224,20,42,0.5)','rgba(224,20,42,0.2)'], borderColor:'#0a0a10', borderWidth:3 }] },
+      options:{ responsive:true, maintainAspectRatio:false, cutout:'65%', plugins:{legend:{position:'bottom',labels:{color:'#6b6b80',padding:16,boxWidth:10}}} }
+    });
+  }
+
+  // ── FORECAST CHART ──
+  if(document.getElementById('forecastChart') && document.getElementById('tab-forecast').classList.contains('active')) {
+    destroyChart('fcast');
+    const fcLabels = ['Q1 22','Q2 22','Q3 22','Q4 22','Q1 23','Q2 23','Q3 23','Q4 23','Q1 24','Q2 24','Q3 24','Q4 24','Q1 25','Q2 25','Q3 25','Q4 25','Q1 26'];
+    const actual =   [3.3,3.2,3.1,3.2,3.2,3.3,3.3,3.4,3.4,3.4,3.5,3.5,null,null,null,null,null];
+    const base =     [null,null,null,null,null,null,null,null,null,null,null,3.5,3.6,3.6,3.7,3.5,3.7];
+    const bull =     [null,null,null,null,null,null,null,null,null,null,null,3.5,3.8,3.9,4.0,3.4,3.8];
+    const bear =     [null,null,null,null,null,null,null,null,null,null,null,3.5,3.3,3.4,3.4,3.5,3.5];
+    charts['fcast'] = new Chart(document.getElementById('forecastChart'), {
+      type: 'line',
+      data: { labels: fcLabels, datasets: [
+        { label:'Actual', data:actual, borderColor:RED, backgroundColor:RED3, fill:true, borderWidth:2, pointRadius:3, pointBackgroundColor:RED, tension:0.3 },
+        { label:'Base Case', data:base, borderColor:GREEN, backgroundColor:'transparent', borderWidth:2, borderDash:[5,3], pointRadius:2, tension:0.3 },
+        { label:'Bull Case', data:bull, borderColor:AMBER, backgroundColor:'transparent', borderWidth:1.5, borderDash:[3,3], pointRadius:2, tension:0.3 },
+        { label:'Bear Case', data:bear, borderColor:GRAY, backgroundColor:'transparent', borderWidth:1.5, borderDash:[3,3], pointRadius:2, tension:0.3 }
+      ]},
+      options:{ responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false}}, scales:{ y:{ticks:{callback:v=>'€'+v+'B'},grid:{color:'rgba(26,79,214,0.07)'}}, x:{grid:{color:'rgba(26,79,214,0.07)'}} } }
+    });
+  }
+
+  if(document.getElementById('quarterlyChart') && document.getElementById('tab-forecast').classList.contains('active')) {
+    destroyChart('qtr');
+    charts['qtr'] = new Chart(document.getElementById('quarterlyChart'), {
+      type:'bar',
+      data:{ labels:['Q1 25','Q2 25','Q3 25','Q4 25'],
+        datasets:[
+          { label:'Actual', data:[3.6,3.6,null,null], backgroundColor:RED, borderColor:RED, borderWidth:1 },
+          { label:'Forecast', data:[null,null,3.7,3.5], backgroundColor:RED2, borderColor:RED, borderWidth:1, borderDash:[4,2] },
+          { label:'Budget', data:[3.5,3.6,3.6,3.7], type:'line', borderColor:GREEN, backgroundColor:'transparent', borderWidth:2, borderDash:[4,3], pointRadius:4 }
+        ]
+      },
+      options:{ responsive:true, maintainAspectRatio:false, plugins:{legend:{labels:{color:'#6b6b80',boxWidth:10,padding:12}}}, scales:{ y:{ticks:{callback:v=>'€'+v+'B'},grid:{color:'rgba(26,79,214,0.07)'}}, x:{grid:{display:false}} } }
+    });
+  }
+
+  if(document.getElementById('ebitChart') && document.getElementById('tab-forecast').classList.contains('active')) {
+    destroyChart('ebit');
+    charts['ebit'] = new Chart(document.getElementById('ebitChart'), {
+      type:'line',
+      data:{ labels:['FY20','FY21','FY22','FY23','FY24','FY25F','FY26F'],
+        datasets:[
+          { label:'Actual EBIT%', data:[15.1,15.0,13.6,15.5,16.2,null,null], borderColor:RED, backgroundColor:RED3, fill:true, borderWidth:2, pointRadius:3 },
+          { label:'Forecast', data:[null,null,null,null,16.2,16.5,17.0], borderColor:GREEN, backgroundColor:'transparent', borderWidth:2, borderDash:[5,3], pointRadius:3 },
+          { label:'Target 16%', data:[16,16,16,16,16,16,16], borderColor:AMBER, backgroundColor:'transparent', borderWidth:1, borderDash:[3,3], pointRadius:0 }
+        ]
+      },
+      options:{ responsive:true, maintainAspectRatio:false, plugins:{legend:{labels:{color:'#6b6b80',boxWidth:10,padding:12}}}, scales:{ y:{ticks:{callback:v=>v+'%'},min:12,max:18,grid:{color:'rgba(26,79,214,0.07)'}}, x:{grid:{display:false}} } }
+    });
+  }
+
+  // ── COST CHARTS ──
+  if(document.getElementById('costDonutChart') && document.getElementById('tab-cost').classList.contains('active')) {
+    destroyChart('costd');
+    charts['costd'] = new Chart(document.getElementById('costDonutChart'), {
+      type:'doughnut',
+      data:{ labels:['Cost of Revenue','SG&A','R&D','D&A','CapEx','EBIT'],
+        datasets:[{ data:[67.9,10.4,2.1,3.6,2.5,13.5], backgroundColor:[RED,'rgba(224,20,42,0.6)','rgba(224,20,42,0.4)','rgba(224,20,42,0.25)','rgba(224,20,42,0.15)',GREEN2], borderColor:'#0a0a10', borderWidth:3 }]
+      },
+      options:{ responsive:true, maintainAspectRatio:false, cutout:'60%', plugins:{legend:{position:'right',labels:{color:'#6b6b80',padding:10,boxWidth:10}}} }
+    });
+  }
+
+  if(document.getElementById('costTrendChart') && document.getElementById('tab-cost').classList.contains('active')) {
+    destroyChart('costt');
+    charts['costt'] = new Chart(document.getElementById('costTrendChart'), {
+      type:'line',
+      data:{ labels:['FY20','FY21','FY22','FY23','FY24'],
+        datasets:[
+          { label:'CoR %', data:[69.1,70.0,71.2,69.3,67.9], borderColor:RED, backgroundColor:'transparent', borderWidth:2, pointRadius:3 },
+          { label:'SG&A %', data:[10.8,10.5,10.6,10.3,10.4], borderColor:AMBER, backgroundColor:'transparent', borderWidth:2, pointRadius:3 },
+          { label:'R&D %', data:[1.8,1.9,2.0,2.0,2.1], borderColor:GREEN, backgroundColor:'transparent', borderWidth:2, pointRadius:3 }
+        ]
+      },
+      options:{ responsive:true, maintainAspectRatio:false, plugins:{legend:{labels:{color:'#6b6b80',boxWidth:10,padding:12}}}, scales:{ y:{ticks:{callback:v=>v+'%'},grid:{color:'rgba(26,79,214,0.07)'}}, x:{grid:{display:false}} } }
+    });
+  }
+
+  if(document.getElementById('opexCapexChart') && document.getElementById('tab-cost').classList.contains('active')) {
+    destroyChart('opex');
+    charts['opex'] = new Chart(document.getElementById('opexCapexChart'), {
+      type:'bar',
+      data:{ labels:['FY20','FY21','FY22','FY23','FY24'],
+        datasets:[
+          { label:'OpEx (€M)', data:[10200,10800,11100,11267,11594], backgroundColor:RED2, borderColor:RED, borderWidth:1.5 },
+          { label:'CapEx (€M)', data:[280,295,305,317,345], backgroundColor:GREEN2, borderColor:GREEN, borderWidth:1.5 }
+        ]
+      },
+      options:{ responsive:true, maintainAspectRatio:false, plugins:{legend:{labels:{color:'#6b6b80',boxWidth:10,padding:16}}}, scales:{ y:{ticks:{callback:v=>'€'+v.toLocaleString()},grid:{color:'rgba(26,79,214,0.07)'}}, x:{grid:{display:false}} } }
+    });
+  }
+
+  // ── P&L CHARTS ──
+  if(document.getElementById('plMonthlyChart') && document.getElementById('tab-pl').classList.contains('active')) {
+    destroyChart('plm');
+    const act = [1060,1090,1120,1130,1150,1160,1180,1190,1170,1200,1210,1140];
+    const bud = [1050,1080,1110,1120,1140,1155,1170,1180,1165,1185,1200,1130];
+    const py  = [1010,1030,1060,1070,1090,1100,1110,1120,1105,1130,1145,1080];
+    charts['plm'] = new Chart(document.getElementById('plMonthlyChart'), {
+      type:'bar',
+      data:{ labels:months,
+        datasets:[
+          { label:'Actual', data:act, backgroundColor:RED, borderColor:RED, borderWidth:1, order:2 },
+          { label:'Budget', data:bud, type:'line', borderColor:RED2, backgroundColor:'transparent', borderWidth:2, borderDash:[4,3], pointRadius:2, order:1 },
+          { label:'Prior Year', data:py, type:'line', borderColor:GRAY, backgroundColor:'transparent', borderWidth:1.5, borderDash:[3,3], pointRadius:2, order:1 }
+        ]
+      },
+      options:{ responsive:true, maintainAspectRatio:false, plugins:{legend:{labels:{color:'#6b6b80',boxWidth:10,padding:16}}}, scales:{ y:{ticks:{callback:v=>'€'+v+'M'},grid:{color:'rgba(26,79,214,0.07)'}}, x:{grid:{display:false}} } }
+    });
+  }
+
+  if(document.getElementById('varianceChart') && document.getElementById('tab-pl').classList.contains('active')) {
+    destroyChart('varChart');
+    charts['varChart'] = new Chart(document.getElementById('varianceChart'), {
+      type:'bar',
+      data:{ labels:['EMEA','Americas','Asia-Pac NE','Asia-Pac Maint','Modernisation','Corporate'],
+        datasets:[{ label:'Variance vs Budget (€M)', data:[85,42,-98,120,18,-25], backgroundColor:ctx=>ctx.raw>=0?GREEN:RED, borderColor:ctx=>ctx.raw>=0?GREEN:RED, borderWidth:1 }]
+      },
+      options:{ responsive:true, maintainAspectRatio:false, indexAxis:'y', plugins:{legend:{display:false}}, scales:{ x:{ticks:{callback:v=>(v>0?'+':'')+v},grid:{color:'rgba(26,79,214,0.07)'}}, y:{grid:{display:false}} } }
+    });
+  }
+
+  if(document.getElementById('waterfallChart') && document.getElementById('tab-pl').classList.contains('active')) {
+    destroyChart('wfall');
+    charts['wfall'] = new Chart(document.getElementById('waterfallChart'), {
+      type:'bar',
+      data:{ labels:['Budget EBIT','Revenue Mix','Cost Savings','FX Impact','R&D Spend','SG&A Overage','Actual EBIT'],
+        datasets:[{ label:'€M', data:[2150,95,62,44,-28,-15,2236], backgroundColor:['#3b3b4f',GREEN,GREEN,GREEN,RED,RED,'#e0142a'], borderWidth:0 }]
+      },
+      options:{ responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false}}, scales:{ y:{ticks:{callback:v=>'€'+v+'M'},grid:{color:'rgba(26,79,214,0.07)'}}, x:{grid:{display:false}} } }
+    });
+  }
+}
+
+initCharts();
+</script>
+
+</body></html>
