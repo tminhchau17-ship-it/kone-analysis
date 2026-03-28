@@ -1,134 +1,91 @@
-# KONE Elevator Energy Analytics
+# KONE Financial Analysis Dashboard
 
-> **Python-based energy analytics project** analysing real elevator operational data across KONE's Finnish building portfolio — identifying energy efficiency opportunities, regenerative savings, and usage patterns to support data-driven facility management decisions.
+> An interactive financial analysis dashboard for **KONE Oyj** (Nasdaq Helsinki: KNEBV) — built as part of an equity research project at Aalto University. Covers revenue performance, budget forecasting, cost structure analysis, and monthly P&L variance reporting.
 
-📊 **[View Live Financial Analysis Dashboard →](https://tminhchau17-ship-it.github.io/kone-analysis/KONE%20Financial%20Analysis%20%E2%80%94%20Chau%20Minh%20Tran.html)**
+📊 **[View Live Dashboard →](https://tminhchau17-ship-it.github.io/kone-analysis/)**
+
+---
+
+## Overview
+
+This dashboard presents a comprehensive financial analysis of KONE Oyj — a global leader in elevators and escalators — across four analytical dimensions. It is designed to communicate financial insights clearly to both technical and non-technical audiences, combining rigorous data analysis with interactive visualisations.
+
+The project was developed alongside a full equity research report on KONE, evaluating the company's investment case, historical financial performance, and ESG positioning.
+
+---
+
+## Dashboard Sections
+
+### 1. Revenue Performance
+- 10-year revenue trend (FY2015–FY2024) with EBIT margin overlay
+- Revenue breakdown by segment: Maintenance (55%), New Equipment (35%), Modernisation (10%)
+- Geographic split: Asia-Pacific, EMEA, Americas
+- Historical data table with year-on-year growth and margin analysis
+
+### 2. Budget Forecast
+- Multi-scenario revenue forecast: Base, Bull, and Bear cases through FY2026
+- Quarterly actual vs budget vs forecast comparison
+- EBIT margin trajectory toward KONE's stated 16% target
+- Probability-weighted scenario summary table
+
+### 3. Cost Structure Analysis
+- Full operating cost breakdown as % of revenue
+- 5-year cost ratio trend: Cost of Revenue, SG&A, R&D
+- OpEx vs CapEx absolute values (FY2020–FY2024)
+- Cost category table with YoY variance and trend flags
+
+### 4. P&L Variance Report
+- Monthly actuals vs budget vs prior year (FY2024)
+- Variance by business unit — EMEA, Americas, Asia-Pacific
+- EBIT waterfall bridge: budget to actual
+- Full P&L line-item variance table with status flags
+
+---
+
+## Key Metrics
+
+| Metric | Value |
+|---|---|
+| FY2024 Revenue | €13.8B (+4.2% YoY) |
+| EBIT Margin | 16.2% (+0.8pp) |
+| Free Cash Flow | €1.8B |
+| Dividend Yield | 3.88% |
+| P/E Ratio | 26x |
+| Revenue CAGR (10Y) | 4.1% |
+
+---
+
+## Tech Stack
+
+| Layer | Tools |
+|---|---|
+| Frontend | HTML, CSS, JavaScript |
+| Charts | Chart.js |
+| Fonts | Orbitron, Inter, JetBrains Mono (Google Fonts) |
+| Hosting | GitHub Pages |
 
 ---
 
 ## Business Context
 
-Elevators account for 2–5% of a building's total energy consumption. For large commercial portfolios, even marginal efficiency gains translate into measurable cost savings and progress toward sustainability targets.
+This dashboard was built as part of a broader equity research project on KONE Oyj at Aalto University. The financial analysis examines KONE's performance across a full 10-year business cycle, covering the COVID-19 impact in 2020, the China property market headwinds from 2022, and the path toward management's stated EBIT margin target of 16%.
 
-This project was developed as part of a financial and operational analysis of **KONE Oyj** (Nasdaq Helsinki: KNEBV) — a global leader in elevator and escalator systems. The objective was to move beyond high-level financial metrics and examine the operational data layer: how individual elevator units consume energy, when peak demand occurs, and where regenerative braking recovery is underperforming relative to fleet benchmarks.
-
----
-
-## Key Findings
-
-| Metric | Value |
-|---|---|
-| Total energy consumption (30-day window) | **6,047 kWh** |
-| Regenerative energy recovered | **758 kWh (12.5% of total)** |
-| Total elevator trips analysed | **242,276** |
-| Average cabin load utilisation | **38%** |
-| Buildings covered | **5 sites across Finland** |
-
-**Operational insights surfaced:**
-
-- Peak traffic demand clusters around **06:00–09:00 and 15:00–18:00**, with average kWh/trip rising 18% during peak windows — informing potential demand-shifting strategies
-- **Helsinki HQ Tower** accounts for the highest absolute consumption but also the highest regen recovery rate (avg 42–45 kWh per unit), suggesting newer equipment is performing as expected
-- **Turku Harbor Building** shows the lowest regen recovery relative to trip volume — a flag for maintenance review or equipment modernisation assessment
-- kWh/trip efficiency ranges from **0.0193 to 0.0293** across the fleet, indicating a 34% performance gap between best and worst units
+**Investment verdict:** Fairly priced — Hold for existing shareholders. KONE's resilient maintenance business (>90% customer retention), capital-light model, and steady dividend yield support long-term shareholder value despite near-term headwinds in new equipment markets.
 
 ---
 
-## Analytical Approach
+## Related Project
 
-**1. Data Pipeline**
-Raw elevator operational logs were ingested, cleaned, and structured using Python. Timestamps were parsed, missing values handled, and unit-level identifiers validated against building metadata.
+This dashboard complements the **KONE Elevator Energy Analytics** project — a Python-based operational data analysis of elevator energy consumption, regenerative savings, and per-unit efficiency across KONE's Finnish building portfolio.
 
-**2. Energy Efficiency Metrics**
-A core efficiency metric — **kWh per trip** — was engineered to enable like-for-like comparison across units with different usage volumes. This normalised metric drives the performance ranking table.
-
-**3. Regenerative Recovery Analysis**
-Regenerative braking data was isolated to calculate recovery rates by unit, building, and time window. Recovery rate = regen kWh / total consumed kWh, expressed as a percentage.
-
-**4. Traffic Profiling**
-Hourly aggregations identified peak demand windows and their correlation with energy intensity — relevant for building managers considering load scheduling or tariff optimisation.
-
-**5. Building-Level Comparison**
-Cross-site analysis benchmarked total consumption, recovery rates, and efficiency metrics across five locations, providing portfolio-level visibility.
-
----
-
-## Tools & Technologies
-
-| Layer | Tools Used |
-|---|---|
-| Data processing | Python, Pandas, NumPy |
-| Visualisation | Plotly, Matplotlib |
-| Dashboard | Plotly Dash (multi-page interactive) |
-| Environment | Jupyter Notebook |
-| Version control | Git, GitHub |
-
----
-
-## Project Structure
-
-```
-kone-elevator-energy-analytics/
-│
-├── data/
-│   └── elevator_logs.csv          # Operational sensor data
-│
-├── notebooks/
-│   └── energy_analysis.ipynb      # Full analysis notebook
-│
-├── dashboard/
-│   └── app.py                     # Plotly Dash dashboard
-│
-├── outputs/
-│   ├── daily_consumption.png
-│   ├── hourly_traffic_profile.png
-│   ├── building_comparison.png
-│   ├── energy_split.png
-│   └── performance_ranking.csv
-│
-└── requirements.txt
-```
-
----
-
-## Running the Project
-
-**Requirements:** Python 3.9+
-
-```bash
-git clone https://github.com/tminhchau17-ship-it/kone-elevator-energy-analytics.git
-cd kone-elevator-energy-analytics
-pip install -r requirements.txt
-```
-
-**Run the analysis notebook:**
-```bash
-jupyter notebook notebooks/energy_analysis.ipynb
-```
-
-**Launch the interactive dashboard:**
-```bash
-python dashboard/app.py
-```
-
----
-
-## Business Relevance
-
-This project was conducted alongside an **equity research report on KONE Oyj** (Aalto University), which evaluated the company's financial performance, ESG positioning, and investment case. The energy analytics work extends that analysis into the operational layer — demonstrating how IoT data from KONE's installed base can generate actionable facility management insights.
-
-For KONE as a business, this type of analysis supports:
-
-- **Maintenance prioritisation** — flagging underperforming units for service review before failure
-- **Modernisation business case** — quantifying efficiency gaps to justify equipment upgrade cycles
-- **ESG reporting** — providing granular energy consumption data aligned with Scope 1/2 reduction targets
-- **Customer value delivery** — enabling KONE to offer data-driven advisory services to building owners, strengthening retention in the maintenance segment
+🔗 [KONE Elevator Energy Analytics →](https://github.com/tminhchau17-ship-it/kone-elevator-energy-analytics)
 
 ---
 
 ## About
 
-Developed by **Chau Minh Tran** — Junior Financial Management professional based in Espoo, Finland.  
+Developed by **Chau Minh Tran** — Junior Financial Management professional based in Espoo, Finland.
 Combining financial analysis with data analytics to bridge operational performance and strategic decision-making.
 
-- Email: tminhchau17@gmail.com  
-- LinkedIn: [linkedin.com/in/chautran17](https://linkedin.com/in/chautran17)
+- 📧 tminhchau17@gmail.com
+- 💼 [linkedin.com/in/chautran17](https://linkedin.com/in/chautran17)
