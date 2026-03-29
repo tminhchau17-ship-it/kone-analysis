@@ -6,7 +6,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-<script src="./KONE Financial Analysis — Chau Minh Tran_files/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <style>
 :root{
   --black:#f4f6fb;--dark:#eef1f8;--dark2:#e8ecf5;--panel:#ffffff;
@@ -186,19 +186,19 @@ footer span:last-child{color:#7eb3ff;}
   <div class="chart-full chart-box">
     <div class="chart-title">Annual Revenue — FY2015 to FY2024 (€B)</div>
     <div class="chart-sub">Total revenue vs EBIT margin overlay</div>
-    <div class="chart-wrap-lg"><canvas id="revenueChart" style="box-sizing: border-box; display: block; height: 300px; width: 796px;" width="1593" height="600"></canvas></div>
+    <div class="chart-wrap-lg"><canvas id="revenueChart"></canvas></div>
   </div>
 
   <div class="chart-grid-2">
     <div class="chart-box">
       <div class="chart-title">Revenue by Segment — FY2024</div>
       <div class="chart-sub">New equipment, maintenance, modernisation</div>
-      <div class="chart-wrap"><canvas id="segmentChart" style="box-sizing: border-box; display: block; height: 220px; width: 361px;" width="723" height="440"></canvas></div>
+      <div class="chart-wrap"><canvas id="segmentChart"></canvas></div>
     </div>
     <div class="chart-box">
       <div class="chart-title">Geographic Revenue Split — FY2024</div>
       <div class="chart-sub">Asia-Pacific, EMEA, Americas</div>
-      <div class="chart-wrap"><canvas id="geoChart" style="box-sizing: border-box; display: block; height: 220px; width: 361px;" width="723" height="440"></canvas></div>
+      <div class="chart-wrap"><canvas id="geoChart"></canvas></div>
     </div>
   </div>
 
@@ -589,7 +589,7 @@ function initCharts() {
   }
 }
 
-initCharts();
+document.addEventListener("DOMContentLoaded", function() { initCharts(); });
 </script>
 
 </body></html>
