@@ -3,9 +3,396 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>KONE Financial Analysis — Chau Minh Tran</title>
-<link rel="preconnect" href="https://fonts.googleapis.com/">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"><\/script>
+<style>  
+/* ===== DATA CLASSIFICATION LEGEND ===== */
+
+.data-legend {
+  margin: 24px 0 32px;
+  padding: 16px 20px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--panel);
+  box-shadow: var(--glow-sm);
+}
+
+.data-legend h3 {
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-family: var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.legend-items {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 10px 0 12px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  font-family: var(--font-mono);
+}
+
+.badge-reported {
+  background: rgba(21, 128, 61, 0.12);
+  color: var(--green);
+}
+
+.badge-derived {
+  background: rgba(26, 79, 214, 0.12);
+  color: var(--red);
+}
+
+.badge-scenario {
+  background: rgba(180, 83, 9, 0.12);
+  color: var(--amber);
+}
+
+.badge-simulated {
+  background: rgba(90, 106, 128, 0.15);
+  color: var(--muted);
+}
+
+.legend-note {
+  margin: 0;
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.section-tag {
+  margin: 8px 0 16px;
+}
+
+.method-note {
+  margin-top: 10px;
+  padding: 12px 14px;
+  border-left: 3px solid var(--amber);
+  background: rgba(180, 83, 9, 0.08);
+  border-radius: 8px;
+  font-size: 12px;
+  color: var(--muted);
+}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script> <style>
+  * ===== DATA CLASSIFICATION LEGEND ===== */
+.data-legend {
+  margin: 24px 0 32px;
+  padding: 16px 20px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--panel);
+  box-shadow: var(--glow-sm);
+}
+
+.data-legend h3 {
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-family: var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.legend-items {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 10px 0 12px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  font-family: var(--font-mono);
+}
+
+.badge-reported {
+  background: rgba(21, 128, 61, 0.12);
+  color: var(--green);
+}
+
+.badge-derived {
+  background: rgba(26, 79, 214, 0.12);
+  color: var(--red);
+}
+
+.badge-scenario {
+  background: rgba(180, 83, 9, 0.12);
+  color: var(--amber);
+}
+
+.badge-simulated {
+  background: rgba(90, 106, 128, 0.15);
+  color: var(--muted);
+}
+
+.legend-note {
+  margin: 0;
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.section-tag {
+  margin: 8px 0 16px;
+}
+
+.method-note {
+  margin-top: 10px;
+  padding: 12px 14px;
+  border-left: 3px solid var(--amber);
+  background: rgba(180, 83, 9, 0.08);
+  border-radius: 8px;
+  font-size: 12px;
+  color: var(--muted);
+}
+/* ===== DATA CLASSIFICATION LEGEND ===== */
+
+.data-legend {
+  margin: 24px 0 32px;
+  padding: 16px 20px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--panel);
+  box-shadow: var(--glow-sm);
+}
+
+.data-legend h3 {
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-family: var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.legend-items {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 10px 0 12px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  font-family: var(--font-mono);
+}
+
+.badge-reported {
+  background: rgba(21, 128, 61, 0.12);
+  color: var(--green);
+}
+
+.badge-derived {
+  background: rgba(26, 79, 214, 0.12);
+  color: var(--red);
+}
+
+.badge-scenario {
+  background: rgba(180, 83, 9, 0.12);
+  color: var(--amber);
+}
+
+.badge-simulated {
+  background: rgba(90, 106, 128, 0.15);
+  color: var(--muted);
+}
+
+.legend-note {
+  margin: 0;
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.section-tag {
+  margin: 8px 0 16px;
+}
+
+.method-note {
+  margin-top: 10px;
+  padding: 12px 14px;
+  border-left: 3px solid var(--amber);
+  background: rgba(180, 83, 9, 0.08);
+  border-radius: 8px;
+  font-size: 12px;
+  color: var(--muted);
+}
+  /* ===== DATA CLASSIFICATION LEGEND ===== */
+
+.data-legend {
+  margin: 24px 0 32px;
+  padding: 16px 20px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--panel);
+  box-shadow: var(--glow-sm);
+}
+
+.data-legend h3 {
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-family: var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.legend-items {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 10px 0 12px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  font-family: var(--font-mono);
+}
+
+.badge-reported {
+  background: rgba(21, 128, 61, 0.12);
+  color: var(--green);
+}
+
+.badge-derived {
+  background: rgba(26, 79, 214, 0.12);
+  color: var(--red);
+}
+
+.badge-scenario {
+  background: rgba(180, 83, 9, 0.12);
+  color: var(--amber);
+}
+
+.badge-simulated {
+  background: rgba(90, 106, 128, 0.15);
+  color: var(--muted);
+}
+
+.legend-note {
+  margin: 0;
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.section-tag {
+  margin: 8px 0 16px;
+}
+
+.method-note {
+  margin-top: 10px;
+  padding: 12px 14px;
+  border-left: 3px solid var(--amber);
+  background: rgba(180, 83, 9, 0.08);
+  border-radius: 8px;
+  font-size: 12px;
+  color: var(--muted);
+}/* ===== DATA CLASSIFICATION LEGEND ===== */
+
+.data-legend {
+  margin: 24px 0 32px;
+  padding: 16px 20px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--panel);
+  box-shadow: var(--glow-sm);
+}
+
+.data-legend h3 {
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-family: var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.legend-items {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 10px 0 12px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  font-family: var(--font-mono);
+}
+
+.badge-reported {
+  background: rgba(21, 128, 61, 0.12);
+  color: var(--green);
+}
+
+.badge-derived {
+  background: rgba(26, 79, 214, 0.12);
+  color: var(--red);
+}
+
+.badge-scenario {
+  background: rgba(180, 83, 9, 0.12);
+  color: var(--amber);
+}
+
+.badge-simulated {
+  background: rgba(90, 106, 128, 0.15);
+  color: var(--muted);
+}
+
+.legend-note {
+  margin: 0;
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.section-tag {
+  margin: 8px 0 16px;
+}
+
+.method-note {
+  margin-top: 10px;
+  padding: 12px 14px;
+  border-left: 3px solid var(--amber);
+  background: rgba(180, 83, 9, 0.08);
+  border-radius: 8px;
+  font-size: 12px;
+  color: var(--muted);
+} 
+</style>
 <style>
 :root{
   --black:#f4f6fb;--dark:#eef1f8;--dark2:#e8ecf5;--panel:#ffffff;
@@ -137,6 +524,14 @@ footer span:last-child{color:#7eb3ff;}
     <li><a href="#" class="tab-link" data-tab="cost">Cost Structure</a></li>
     <li><a href="#" class="tab-link" data-tab="pl">P&amp;L Variance</a></li>
   </ul>
+<nav>
+  <div class="nav-logo">CMT<span>_</span>ANALYSIS</div>
+  <ul class="nav-tabs">
+    <li><a href="#" class="tab-link active" data-tab="revenue">Revenue</a></li>
+    <li><a href="#" class="tab-link" data-tab="forecast">Forecast</a></li>
+    <li><a href="#" class="tab-link" data-tab="cost">Cost Structure</a></li>
+    <li><a href="#" class="tab-link" data-tab="pl">P&amp;L Variance</a></li>
+  </ul>
   <a href="../portfolio.html" class="nav-back">← Back to Portfolio</a>
 </nav>
 
@@ -185,19 +580,19 @@ footer span:last-child{color:#7eb3ff;}
   <div class="chart-full chart-box">
     <div class="chart-title">Annual Revenue — FY2015 to FY2024 (€B)</div>
     <div class="chart-sub">Total revenue vs EBIT margin overlay</div>
-    <div class="chart-wrap-lg"><canvas id="revenueChart" style="box-sizing: border-box; display: block; height: 300px; width: 796px;" width="1593" height="600"></canvas></div>
+    <div class="chart-wrap-lg"><canvas id="revenueChart"></canvas></div>
   </div>
 
   <div class="chart-grid-2">
     <div class="chart-box">
       <div class="chart-title">Revenue by Segment — FY2024</div>
       <div class="chart-sub">New equipment, maintenance, modernisation</div>
-      <div class="chart-wrap"><canvas id="segmentChart" style="box-sizing: border-box; display: block; height: 220px; width: 361px;" width="723" height="440"></canvas></div>
+      <div class="chart-wrap"><canvas id="segmentChart"></canvas></div>
     </div>
     <div class="chart-box">
       <div class="chart-title">Geographic Revenue Split — FY2024</div>
       <div class="chart-sub">Asia-Pacific, EMEA, Americas</div>
-      <div class="chart-wrap"><canvas id="geoChart" style="box-sizing: border-box; display: block; height: 220px; width: 361px;" width="723" height="440"></canvas></div>
+      <div class="chart-wrap"><canvas id="geoChart"></canvas></div>
     </div>
   </div>
 
@@ -588,7 +983,7 @@ function initCharts() {
   }
 }
 
-initCharts();
+document.addEventListener("DOMContentLoaded", function() { initCharts(); });
 </script>
 
 </body></html>

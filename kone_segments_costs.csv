@@ -1,0 +1,18 @@
+Segment,FY2024_MEUR,FY2025_MEUR,FY2024_pct,FY2025_pct
+New Building Solutions,4506.9,4097.7,41,36
+Service (Maintenance),4503.6,4753.6,41,42
+Modernisation,2088.0,2394.0,19,21
+
+Region,FY2024_MEUR,FY2025_MEUR,FY2024_pct,FY2025_pct
+Europe,4233.8,4524.4,38,40
+Americas,2727.1,2812.1,25,25
+Greater China,2528.2,2166.0,23,19
+APMEA,1609.3,1742.7,14,15
+
+Cost_Category,FY2024_MEUR,FY2025_MEUR
+Direct Materials & Subcontracting,3947.5,3877.9
+Wages & Employment Costs,3907.0,4090.7
+Other Production Costs,882.4,879.2
+SG&A,860.0,782.8
+Depreciation & Amortisation,292.2,319.9
+R&D,203.6,233.9
