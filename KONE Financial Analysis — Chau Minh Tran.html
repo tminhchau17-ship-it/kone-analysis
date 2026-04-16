@@ -149,14 +149,39 @@ footer span:last-child{color:#7eb3ff;}
     <div class="hero-breadcrumb">Portfolio <span>/</span> Projects <span>/</span> KONE Financial Analysis</div>
     <h1 class="hero-title">KONE <span class="red">Financial</span> Analysis</h1>
     <p class="hero-sub">// Revenue Performance · Budget Forecast · Cost Structure · P&amp;L Variance — FY2024</p>
-    <div class="hero-kpis">
-      <div class="hero-kpi"><div class="hero-kpi-val">€13.8B</div><div class="hero-kpi-label">Total Revenue</div><div class="hero-kpi-delta dg">▲ 4.2% YoY</div></div>
-      <div class="hero-kpi"><div class="hero-kpi-val">16.2%</div><div class="hero-kpi-label">EBIT Margin</div><div class="hero-kpi-delta dg">▲ 0.8pp</div></div>
-      <div class="hero-kpi"><div class="hero-kpi-val">€1.8B</div><div class="hero-kpi-label">Free Cash Flow</div><div class="hero-kpi-delta dg">▲ 6.1%</div></div>
-      <div class="hero-kpi"><div class="hero-kpi-val">3.88%</div><div class="hero-kpi-label">Dividend Yield</div><div class="hero-kpi-delta da">▬ Stable</div></div>
-      <div class="hero-kpi"><div class="hero-kpi-val">26x</div><div class="hero-kpi-label">P/E Ratio</div><div class="hero-kpi-delta dr">▼ -2x vs peer avg</div></div>
-    </div>
+   <div class="hero-kpis">
+
+  <div class="hero-kpi">
+    <div class="hero-kpi-val">€11.25B</div>
+    <div class="hero-kpi-label">Total Revenue</div>
+    <div class="hero-kpi-delta dg">▲ 1.3% YoY</div>
   </div>
+
+  <div class="hero-kpi">
+    <div class="hero-kpi-val">12.2%</div>
+    <div class="hero-kpi-label">Adjusted EBIT Margin</div>
+    <div class="hero-kpi-delta dg">▲ 0.5pp</div>
+  </div>
+
+  <div class="hero-kpi">
+    <div class="hero-kpi-val">€1.37B</div>
+    <div class="hero-kpi-label">Adjusted EBIT</div>
+    <div class="hero-kpi-delta dg">▲ 5.1%</div>
+  </div>
+
+  <div class="hero-kpi">
+    <div class="hero-kpi-val">€1.76B</div>
+    <div class="hero-kpi-label">Cash Flow Ops</div>
+    <div class="hero-kpi-delta dg">▲ 10.8%</div>
+  </div>
+
+  <div class="hero-kpi">
+    <div class="hero-kpi-val">€1.80</div>
+    <div class="hero-kpi-label">Dividend / B Share</div>
+    <div class="hero-kpi-delta">Proposal</div>
+  </div>
+
+</div>
 </div>
 
 <!-- TAB NAV -->
@@ -174,30 +199,44 @@ footer span:last-child{color:#7eb3ff;}
 <div class="tab-section active" id="tab-revenue">
   <div class="sec-header">
     <div class="sec-eyebrow">Revenue Performance</div>
-    <div class="sec-title">KONE Revenue Analysis — FY2015 to FY2024</div>
+    <div class="sec-title">KONE Revenue Analysis — FY2015 to FY2025</div>
     <div class="sec-desc">10-year revenue trend analysis showing KONE's growth trajectory, segment breakdown, and geographic distribution across key markets.</div>
   </div>
 
   <div class="insights">
-    <div class="insight-card"><div class="insight-label">10Y Revenue CAGR</div><div class="insight-val" style="color:var(--green)">4.1%</div><div class="insight-desc">Steady top-line growth aligned with global GDP, driven by urbanisation and maintenance base expansion.</div></div>
-    <div class="insight-card"><div class="insight-label">Maintenance Share</div><div class="insight-val" style="color:var(--red)">55%</div><div class="insight-desc">Recurring maintenance revenue provides stability, buffering against cyclical new equipment slowdowns.</div></div>
-    <div class="insight-card"><div class="insight-label">China New Installs</div><div class="insight-val" style="color:var(--amber)">59%</div><div class="insight-desc">Significant geographic concentration risk in Chinese property market — key headwind since 2022.</div></div>
+  <div class="insight-card">
+    <div class="insight-label">FY2025 Sales Growth</div>
+    <div class="insight-val" style="color:var(--green)">+1.3%</div>
+    <div class="insight-desc">KONE reported sales of €11,245.2M in 2025, up 1.3% year over year.</div>
   </div>
 
+  <div class="insight-card">
+    <div class="insight-label">Adjusted EBIT Margin</div>
+    <div class="insight-val" style="color:var(--green)">12.2%</div>
+    <div class="insight-desc">Adjusted EBIT reached €1,369.3M, with margin improving from 11.7% in 2024.</div>
+  </div>
+
+  <div class="insight-card">
+    <div class="insight-label">Cash Flow Ops</div>
+    <div class="insight-val" style="color:var(--amber)">€1.76B</div>
+    <div class="insight-desc">Cash flow from operations before financing items and taxes was €1,761.3M.</div>
+  </div>
+</div>
+
   <div class="chart-full chart-box">
-    <div class="chart-title">Annual Revenue — FY2015 to FY2024 (€B)</div>
-    <div class="chart-sub">Total revenue vs EBIT margin overlay</div>
+<div class="chart-title">Annual Revenue — FY2015 to FY2025 (€B)</div>
+<div class="chart-sub">Sales trend with EBIT margin overlay</div>
     <div class="chart-wrap-lg"><canvas id="revenueChart" style="box-sizing: border-box; display: block; height: 300px; width: 796px;" width="1593" height="600"></canvas></div>
   </div>
 
   <div class="chart-grid-2">
     <div class="chart-box">
-      <div class="chart-title">Revenue by Segment — FY2024</div>
+      <div class="chart-title">Revenue by Segment — FY2025</div>
       <div class="chart-sub">New equipment, maintenance, modernisation</div>
       <div class="chart-wrap"><canvas id="segmentChart" style="box-sizing: border-box; display: block; height: 220px; width: 361px;" width="723" height="440"></canvas></div>
     </div>
     <div class="chart-box">
-      <div class="chart-title">Geographic Revenue Split — FY2024</div>
+      <div class="chart-title">Geographic Revenue Split — FY2025</div>
       <div class="chart-sub">Asia-Pacific, EMEA, Americas</div>
       <div class="chart-wrap"><canvas id="geoChart" style="box-sizing: border-box; display: block; height: 220px; width: 361px;" width="723" height="440"></canvas></div>
     </div>
@@ -207,7 +246,9 @@ footer span:last-child{color:#7eb3ff;}
     <table class="data-table">
       <thead><tr><th>Year</th><th>Revenue (€B)</th><th>YoY Growth</th><th>Gross Margin</th><th>EBIT (€M)</th><th>EBIT Margin</th><th>Status</th></tr></thead>
       <tbody>
-        <tr><td>FY2024</td><td class="val-neu">13.8</td><td class="val-pos">+4.2%</td><td class="val-pos">32.1%</td><td class="val-neu">2,236</td><td class="val-pos">16.2%</td><td><span class="badge badge-green">On Track</span></td></tr>
+        <tr>
+        <td>FY2025</td><td class="val-neu">11.25</td><td class="val-pos">+1.3%</td><td class="val-neu">—</td><td class="val-neu">1,336</td><td class="val-pos">11.9%</td><td><span class="badge badge-green">Published</span></td></tr><tr>
+        <td>FY2024</td><td class="val-neu">11.10</td><td class="val-neu">—</td><td class="val-neu">—</td><td class="val-neu">1,249</td><td class="val-neu">11.3%</td><td><span class="badge badge-green">Published</span></td></tr>
         <tr><td>FY2023</td><td class="val-neu">13.2</td><td class="val-pos">+3.1%</td><td class="val-pos">31.4%</td><td class="val-neu">2,048</td><td class="val-pos">15.5%</td><td><span class="badge badge-green">Recovery</span></td></tr>
         <tr><td>FY2022</td><td class="val-neu">12.8</td><td class="val-neg">-1.2%</td><td class="val-neg">29.8%</td><td class="val-neu">1,740</td><td class="val-neg">13.6%</td><td><span class="badge badge-red">Headwind</span></td></tr>
         <tr><td>FY2021</td><td class="val-neu">12.9</td><td class="val-pos">+8.4%</td><td class="val-pos">30.5%</td><td class="val-neu">1,930</td><td class="val-pos">15.0%</td><td><span class="badge badge-green">Rebound</span></td></tr>
@@ -224,16 +265,30 @@ footer span:last-child{color:#7eb3ff;}
 <div class="tab-section" id="tab-forecast">
   <div class="sec-header">
     <div class="sec-eyebrow">Budget Forecast</div>
-    <div class="sec-title">Rolling 12-Month Revenue Forecast — FY2025–2026</div>
-    <div class="sec-desc">Forecast model using time-series analysis (Prophet) applied to KONE's historical revenue, incorporating management guidance of 0–5% growth and EBIT margin target of 16%.</div>
+    <div class="sec-title">FY2026 Outlook and Scenario Forecast</div>
+    <div class="sec-desc">Scenario model anchored to KONE's official 2026 outlook: sales growth of 2–6% at comparable exchange rates and adjusted EBIT margin of 12.3–13.0%.</div>
   </div>
 
-  <div class="insights">
-    <div class="insight-card"><div class="insight-label">Base Case Forecast</div><div class="insight-val" style="color:var(--green)">€14.4B</div><div class="insight-desc">FY2025 base case at +4.5% growth, assuming stable maintenance revenue and moderate China recovery.</div></div>
-    <div class="insight-card"><div class="insight-label">Bear Case Forecast</div><div class="insight-val" style="color:var(--red)">€13.6B</div><div class="insight-desc">Bear scenario at -1.5% — continued China property weakness, supply chain pressure, margin compression.</div></div>
-    <div class="insight-card"><div class="insight-label">Bull Case Forecast</div><div class="insight-val" style="color:var(--amber)">€15.1B</div><div class="insight-desc">Bull case at +9.4% — China recovery, new equipment growth in emerging markets, margin expansion to 17%+.</div></div>
+ <div class="insights">
+  <div class="insight-card">
+    <div class="insight-label">FY2025 Sales Growth</div>
+    <div class="insight-val" style="color:var(--green)">+1.3%</div>
+    <div class="insight-desc">KONE reported sales of €11,245.2M in 2025, up 1.3% year over year.</div>
   </div>
 
+  <div class="insight-card">
+    <div class="insight-label">Adjusted EBIT Margin</div>
+    <div class="insight-val" style="color:var(--green)">12.2%</div>
+    <div class="insight-desc">Adjusted EBIT reached €1,369.3M, with margin improving from 11.7% in 2024.</div>
+  </div>
+ </div> 
+  <div class="insight-card">
+    <div class="insight-label">Cash Flow Ops</div>
+    <div class="insight-val" style="color:var(--amber)">€1.76B</div>
+    <div class="insight-desc">Cash flow from operations before financing items and taxes was €1,761.3M.</div>
+  </div>
+  </div>
+  
   <div class="chart-full chart-box">
     <div class="chart-title">Revenue Forecast — Actual vs Projected (Base / Bull / Bear)</div>
     <div class="chart-sub">Monthly rolling forecast with confidence bands — FY2022 to FY2026</div>
@@ -248,35 +303,67 @@ footer span:last-child{color:#7eb3ff;}
 
   <div class="chart-grid-2">
     <div class="chart-box">
-      <div class="chart-title">Quarterly Revenue Forecast — FY2025</div>
-      <div class="chart-sub">Actual Q1–Q2 vs projected Q3–Q4</div>
+      <div class="chart-title">Quarterly Revenue Screnarios — FY2026</div>
+      <div class="chart-sub">Bear, base, and bull case quarterly revenue path</div>
       <div class="chart-wrap"><canvas id="quarterlyChart" width="723" height="440" style="display: block; box-sizing: border-box; height: 220px; width: 361px;"></canvas></div>
     </div>
     <div class="chart-box">
-      <div class="chart-title">EBIT Margin Forecast — Path to 16% Target</div>
-      <div class="chart-sub">Historical margins + forecast trajectory</div>
+      <div class="chart-title">Adjusted EBIT Margin Outlook — FY2024 to FY2026</div>
+      <div class="chart-sub">FY2025 actual margin and FY2026 scenario range</div>
       <div class="chart-wrap"><canvas id="ebitChart" width="723" height="440" style="display: block; box-sizing: border-box; height: 220px; width: 361px;"></canvas></div>
     </div>
   </div>
-
-  <div class="table-wrap">
-    <table class="data-table">
-      <thead><tr><th>Scenario</th><th>FY2025 Revenue</th><th>Growth</th><th>EBIT Margin</th><th>EPS (€)</th><th>Dividend (€)</th><th>Probability</th></tr></thead>
-      <tbody>
-        <tr><td class="val-pos">Bull Case</td><td class="val-pos">€15.1B</td><td class="val-pos">+9.4%</td><td class="val-pos">17.2%</td><td class="val-neu">2.38</td><td class="val-neu">1.85</td><td><span class="badge badge-amber">25%</span></td></tr>
-        <tr><td class="val-neu">Base Case</td><td class="val-neu">€14.4B</td><td class="val-pos">+4.5%</td><td class="val-pos">16.5%</td><td class="val-neu">2.14</td><td class="val-neu">1.72</td><td><span class="badge badge-green">55%</span></td></tr>
-        <tr><td class="val-neg">Bear Case</td><td class="val-neg">€13.6B</td><td class="val-neg">-1.5%</td><td class="val-neg">14.8%</td><td class="val-neu">1.88</td><td class="val-neu">1.60</td><td><span class="badge badge-red">20%</span></td></tr>
-      </tbody>
-    </table>
-  </div>
+<div class="table-wrap">
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Scenario</th>
+        <th>FY2026 Revenue</th>
+        <th>Growth</th>
+        <th>Adj. EBIT Margin</th>
+        <th>Comment</th>
+        <th>Basis</th>
+        <th>Probability</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="val-neg">Bear Case</td>
+        <td class="val-neg">€11.47B</td>
+        <td class="val-neg">+2.0%</td>
+        <td class="val-neu">12.3%</td>
+        <td>Low end of official 2026 outlook</td>
+        <td><span class="badge badge-red">Guidance Low</span></td>
+        <td><span class="badge badge-red">25%</span></td>
+      </tr>
+      <tr>
+        <td class="val-neu">Base Case</td>
+        <td class="val-neu">€11.70B</td>
+        <td class="val-pos">+4.0%</td>
+        <td class="val-pos">12.6%</td>
+        <td>Midpoint-style operating case</td>
+        <td><span class="badge badge-green">Base</span></td>
+        <td><span class="badge badge-green">50%</span></td>
+      </tr>
+      <tr>
+        <td class="val-pos">Bull Case</td>
+        <td class="val-pos">€11.92B</td>
+        <td class="val-pos">+6.0%</td>
+        <td class="val-pos">13.0%</td>
+        <td>High end of official 2026 outlook</td>
+        <td><span class="badge badge-amber">Guidance High</span></td>
+        <td><span class="badge badge-amber">25%</span></td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 
 <!-- ============ TAB 3: COST STRUCTURE ============ -->
 <div class="tab-section" id="tab-cost">
   <div class="sec-header">
     <div class="sec-eyebrow">Cost Structure Analysis</div>
-    <div class="sec-title">Operating Cost Breakdown — FY2024</div>
-    <div class="sec-desc">Detailed decomposition of KONE's cost base across cost of goods sold, R&amp;D, SG&amp;A, and capital expenditure — with trend analysis over the past five years.</div>
+    <div class="sec-title">Operating Cost Breakdown — FY2025 Context</div>
+    <div class="sec-desc">Illustrative decomposition of KONE's operating cost base across major categories, shown with historical context and portfolio-model assumptions where public detail is limited.</div>
   </div>
 
   <div class="insights">
@@ -287,19 +374,19 @@ footer span:last-child{color:#7eb3ff;}
 
   <div class="chart-grid-2">
     <div class="chart-box">
-      <div class="chart-title">Cost Structure Breakdown — FY2024</div>
+      <div class="chart-title">Cost Structure Breakdown — FY2025 Context</div>
       <div class="chart-sub">% of total revenue by cost category</div>
       <div class="chart-wrap"><canvas id="costDonutChart" width="723" height="440" style="display: block; box-sizing: border-box; height: 220px; width: 361px;"></canvas></div>
     </div>
     <div class="chart-box">
-      <div class="chart-title">Cost Trend — FY2020 to FY2024</div>
+      <div class="chart-title">Cost Trend — FY2020 to FY2025</div>
       <div class="chart-sub">Key cost ratios as % of revenue</div>
       <div class="chart-wrap"><canvas id="costTrendChart" width="723" height="440" style="display: block; box-sizing: border-box; height: 220px; width: 361px;"></canvas></div>
     </div>
   </div>
 
   <div class="chart-full chart-box">
-    <div class="chart-title">OpEx vs CapEx — Absolute Values (€M) FY2020–FY2024</div>
+    <div class="chart-title">OpEx vs CapEx — Illustrative Historical View</div>
     <div class="chart-sub">Operating expenditure and capital expenditure by year</div>
     <div class="chart-wrap-lg"><canvas id="opexCapexChart" width="1593" height="600" style="display: block; box-sizing: border-box; height: 300px; width: 796px;"></canvas></div>
   </div>
@@ -323,19 +410,31 @@ footer span:last-child{color:#7eb3ff;}
 <div class="tab-section" id="tab-pl">
   <div class="sec-header">
     <div class="sec-eyebrow">P&amp;L Variance Report</div>
-    <div class="sec-title">Monthly Actuals vs Budget — FY2024</div>
-    <div class="sec-desc">Department-level P&amp;L variance analysis comparing actual results against budget, identifying over/under performance by line item and business unit.</div>
+    <div class="sec-title">Budget vs Actual — Illustrative View</div>
+    <div class="sec-desc">Portfolio-style variance analysis for analytical demonstration. Refer to KONE's official reporting for statutory results and disclosed segment performance.</div>
   </div>
 
-  <div class="insights">
-    <div class="insight-card"><div class="insight-label">Revenue vs Budget</div><div class="insight-val" style="color:var(--green)">+€142M</div><div class="insight-desc">+1.0% favorable variance. Maintenance outperformed by +3.2%; new equipment underperformed by -2.1% vs budget.</div></div>
-    <div class="insight-card"><div class="insight-label">EBIT vs Budget</div><div class="insight-val" style="color:var(--green)">+€86M</div><div class="insight-desc">+4.0% favorable. Cost discipline and FX tailwinds delivered above-budget EBIT despite mix headwinds.</div></div>
-    <div class="insight-card"><div class="insight-label">Largest Shortfall</div><div class="insight-val" style="color:var(--red)">-€98M</div><div class="insight-desc">Asia-Pacific new equipment revenue missed budget by 8.2%, driven by continued China property market weakness.</div></div>
+  <<div class="insights">
+  <div class="insight-card">
+    <div class="insight-label">Revenue Variance</div>
+    <div class="insight-val" style="color:var(--green)">+€142M</div>
+    <div class="insight-desc">Illustrative favorable variance versus internal budget assumptions in the portfolio model.</div>
   </div>
+  <div class="insight-card">
+    <div class="insight-label">EBIT Variance</div>
+    <div class="insight-val" style="color:var(--green)">+€86M</div>
+    <div class="insight-desc">Illustrative EBIT upside driven by pricing, mix, and cost discipline assumptions.</div>
+  </div>
+  <div class="insight-card">
+    <div class="insight-label">Largest Shortfall</div>
+    <div class="insight-val" style="color:var(--red)">-€98M</div>
+    <div class="insight-desc">Illustrative new-equipment shortfall in Asia-Pacific within the portfolio variance model.</div>
+  </div>
+</div>
 
   <div class="chart-full chart-box">
-    <div class="chart-title">Monthly Revenue — Actual vs Budget vs Prior Year (€M)</div>
-    <div class="chart-sub">Full-year FY2024 monthly performance</div>
+    <div class="chart-title">Variance by Business Unit (€M)</div>
+    <div class="chart-sub">Monthly Revenue — Budget vs Actual Model (€M)</div>
     <div class="legend-row">
       <div class="legend-item"><div class="legend-dot" style="background:var(--red)"></div>Actual</div>
       <div class="legend-item"><div class="legend-dot" style="background:rgba(224,20,42,0.3)"></div>Budget</div>
@@ -347,19 +446,19 @@ footer span:last-child{color:#7eb3ff;}
   <div class="chart-grid-2">
     <div class="chart-box">
       <div class="chart-title">Variance by Business Unit (€M)</div>
-      <div class="chart-sub">Actual vs budget delta by region/segment</div>
+      <div class="chart-sub">Illustrative delta by region and segment</div>
       <div class="chart-wrap"><canvas id="varianceChart" width="723" height="440" style="display: block; box-sizing: border-box; height: 220px; width: 361px;"></canvas></div>
     </div>
     <div class="chart-box">
-      <div class="chart-title">P&amp;L Waterfall — FY2024 Budget to Actual</div>
-      <div class="chart-sub">Bridge from budget EBIT to actual EBIT</div>
+      <div class="chart-title">P&amp;L Illustrative delta by region and segment</div>
+      <div class="chart-sub">Waterfall — Budget to Actual Bridge</div>
       <div class="chart-wrap"><canvas id="waterfallChart" width="723" height="440" style="display: block; box-sizing: border-box; height: 220px; width: 361px;"></canvas></div>
     </div>
   </div>
 
   <div class="table-wrap">
     <table class="data-table">
-      <thead><tr><th>P&amp;L Line</th><th>Budget (€M)</th><th>Actual (€M)</th><th>Variance (€M)</th><th>Variance %</th><th>Flag</th></tr></thead>
+      <thead><tr><th>P&amp;L Line</th><th>Budget Model (€M)</th><th>Actual Model (€M)</th><th>Variance (€M)</th><th>Variance %</th><th>Flag</th></tr></thead>
       <tbody>
         <tr><td>Revenue</td><td>13,658</td><td class="val-neu">13,800</td><td class="val-pos">+142</td><td class="val-pos">+1.0%</td><td><span class="badge badge-green">✓ On Track</span></td></tr>
         <tr><td>&nbsp;&nbsp;↳ New Equipment</td><td>6,146</td><td class="val-neg">6,017</td><td class="val-neg">-129</td><td class="val-neg">-2.1%</td><td><span class="badge badge-red">⚠ Below Budget</span></td></tr>
@@ -378,7 +477,7 @@ footer span:last-child{color:#7eb3ff;}
 
 <footer>
   <span>© 2026 CHAU MINH TRAN</span>
-  <span>KONE FINANCIAL ANALYSIS — AALTO UNIVERSITY</span>
+  <span>KONE FINANCIAL ANALYSIS</span>
   <span>CMT_ANALYSIS_v1.0</span>
 </footer>
 
@@ -420,7 +519,7 @@ const charts = {};
 function destroyChart(id) { if(charts[id]) { charts[id].destroy(); delete charts[id]; } }
 
 function initCharts() {
-  const years = ['FY15','FY16','FY17','FY18','FY19','FY20','FY21','FY22','FY23','FY24'];
+  const years = ['FY15','FY16','FY17','FY18','FY19','FY20','FY21','FY22','FY23','FY24','FY25'];
   const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
   // ── REVENUE CHART ──
@@ -428,13 +527,30 @@ function initCharts() {
     destroyChart('rev');
     charts['rev'] = new Chart(document.getElementById('revenueChart'), {
       type: 'bar',
-      data: {
-        labels: years,
-        datasets: [
-          { label: 'Revenue (€B)', data: [8.6,9.1,9.6,11.9,12.5,11.9,12.9,12.8,13.2,13.8], backgroundColor: RED2, borderColor: RED, borderWidth: 1.5, yAxisID: 'y' },
-          { label: 'EBIT Margin %', data: [15.0,15.2,15.8,16.1,16.4,15.1,15.0,13.6,15.5,16.2], type: 'line', borderColor: GREEN, backgroundColor: 'transparent', borderWidth: 2, pointBackgroundColor: GREEN, pointRadius: 3, yAxisID: 'y1' }
-        ]
-      },
+     data: {
+  labels: years,
+  datasets: [
+    {
+      label: 'Revenue (€B)',
+      data: [8.6, 9.1, 9.6, 11.9, 12.5, 11.9, 12.9, 12.8, 13.2, 11.10, 11.25],
+      backgroundColor: RED2,
+      borderColor: RED,
+      borderWidth: 1.5,
+      yAxisID: 'y'
+    },
+    {
+      label: 'EBIT Margin %',
+      data: [15.0, 15.2, 15.8, 16.1, 16.4, 15.1, 15.0, 13.6, 15.5, 11.3, 11.9],
+      type: 'line',
+      borderColor: GREEN,
+      backgroundColor: 'transparent',
+      borderWidth: 2,
+      pointBackgroundColor: GREEN,
+      pointRadius: 3,
+      yAxisID: 'y1'
+    }
+  ]
+}
       options: { responsive:true, maintainAspectRatio:false, interaction:{mode:'index'}, plugins:{legend:{display:true,labels:{color:'#6b6b80',boxWidth:12,padding:16}}}, scales:{ y:{ticks:{callback:v=>'€'+v+'B'},grid:{color:'rgba(26,79,214,0.07)'}}, y1:{position:'right',ticks:{callback:v=>v+'%'},grid:{display:false}} } }
     });
   }
@@ -460,11 +576,15 @@ function initCharts() {
   // ── FORECAST CHART ──
   if(document.getElementById('forecastChart') && document.getElementById('tab-forecast').classList.contains('active')) {
     destroyChart('fcast');
-    const fcLabels = ['Q1 22','Q2 22','Q3 22','Q4 22','Q1 23','Q2 23','Q3 23','Q4 23','Q1 24','Q2 24','Q3 24','Q4 24','Q1 25','Q2 25','Q3 25','Q4 25','Q1 26'];
-    const actual =   [3.3,3.2,3.1,3.2,3.2,3.3,3.3,3.4,3.4,3.4,3.5,3.5,null,null,null,null,null];
-    const base =     [null,null,null,null,null,null,null,null,null,null,null,3.5,3.6,3.6,3.7,3.5,3.7];
-    const bull =     [null,null,null,null,null,null,null,null,null,null,null,3.5,3.8,3.9,4.0,3.4,3.8];
-    const bear =     [null,null,null,null,null,null,null,null,null,null,null,3.5,3.3,3.4,3.4,3.5,3.5];
+    const fcLabels = ['Q1 24','Q2 24','Q3 24','Q4 24','Q1 25','Q2 25','Q3 25','Q4 25','Q1 26','Q2 26','Q3 26','Q4 26'];
+
+const actual = [2.70, 2.75, 2.80, 2.85, 2.75, 2.80, 2.83, 2.86, null, null, null, null];
+
+const base = [null, null, null, null, null, null, null, 2.86, 2.87, 2.92, 2.95, 2.96];
+
+const bull = [null, null, null, null, null, null, null, 2.86, 2.90, 2.97, 3.01, 3.04];
+
+const bear = [null, null, null, null, null, null, null, 2.86, 2.82, 2.86, 2.89, 2.90];
     charts['fcast'] = new Chart(document.getElementById('forecastChart'), {
       type: 'line',
       data: { labels: fcLabels, datasets: [
@@ -478,34 +598,85 @@ function initCharts() {
   }
 
   if(document.getElementById('quarterlyChart') && document.getElementById('tab-forecast').classList.contains('active')) {
-    destroyChart('qtr');
-    charts['qtr'] = new Chart(document.getElementById('quarterlyChart'), {
-      type:'bar',
-      data:{ labels:['Q1 25','Q2 25','Q3 25','Q4 25'],
-        datasets:[
-          { label:'Actual', data:[3.6,3.6,null,null], backgroundColor:RED, borderColor:RED, borderWidth:1 },
-          { label:'Forecast', data:[null,null,3.7,3.5], backgroundColor:RED2, borderColor:RED, borderWidth:1, borderDash:[4,2] },
-          { label:'Budget', data:[3.5,3.6,3.6,3.7], type:'line', borderColor:GREEN, backgroundColor:'transparent', borderWidth:2, borderDash:[4,3], pointRadius:4 }
-        ]
-      },
-      options:{ responsive:true, maintainAspectRatio:false, plugins:{legend:{labels:{color:'#6b6b80',boxWidth:10,padding:12}}}, scales:{ y:{ticks:{callback:v=>'€'+v+'B'},grid:{color:'rgba(26,79,214,0.07)'}}, x:{grid:{display:false}} } }
-    });
-  }
+  destroyChart('qtr');
+  charts['qtr'] = new Chart(document.getElementById('quarterlyChart'), {
+    type:'bar',
+    data:{
+      labels:['Q1 26','Q2 26','Q3 26','Q4 26'],
+      datasets:[
+        {
+          label:'Bear Case',
+          data:[2.82, 2.86, 2.89, 2.90],
+          backgroundColor: GRAY2,
+          borderColor: GRAY,
+          borderWidth: 1
+        },
+        {
+          label:'Base Case',
+          data:[2.87, 2.92, 2.95, 2.96],
+          backgroundColor: RED2,
+          borderColor: RED,
+          borderWidth: 1
+        },
+        {
+          label:'Bull Case',
+          data:[2.90, 2.97, 3.01, 3.04],
+          backgroundColor: GREEN2,
+          borderColor: GREEN,
+          borderWidth: 1
+        }
+      ]
+    },
+    options:{
+      responsive:true,
+      maintainAspectRatio:false,
+      plugins:{legend:{labels:{color:'#6b6b80',boxWidth:10,padding:12}}},
+      scales:{
+        y:{ticks:{callback:v=>'€'+v+'B'},grid:{color:'rgba(26,79,214,0.07)'}},
+        x:{grid:{display:false}}
+      }
+    }
+  });
+}
 
-  if(document.getElementById('ebitChart') && document.getElementById('tab-forecast').classList.contains('active')) {
-    destroyChart('ebit');
-    charts['ebit'] = new Chart(document.getElementById('ebitChart'), {
-      type:'line',
-      data:{ labels:['FY20','FY21','FY22','FY23','FY24','FY25F','FY26F'],
-        datasets:[
-          { label:'Actual EBIT%', data:[15.1,15.0,13.6,15.5,16.2,null,null], borderColor:RED, backgroundColor:RED3, fill:true, borderWidth:2, pointRadius:3 },
-          { label:'Forecast', data:[null,null,null,null,16.2,16.5,17.0], borderColor:GREEN, backgroundColor:'transparent', borderWidth:2, borderDash:[5,3], pointRadius:3 },
-          { label:'Target 16%', data:[16,16,16,16,16,16,16], borderColor:AMBER, backgroundColor:'transparent', borderWidth:1, borderDash:[3,3], pointRadius:0 }
-        ]
-      },
-      options:{ responsive:true, maintainAspectRatio:false, plugins:{legend:{labels:{color:'#6b6b80',boxWidth:10,padding:12}}}, scales:{ y:{ticks:{callback:v=>v+'%'},min:12,max:18,grid:{color:'rgba(26,79,214,0.07)'}}, x:{grid:{display:false}} } }
-    });
-  }
+ if(document.getElementById('ebitChart') && document.getElementById('tab-forecast').classList.contains('active')) {
+  destroyChart('ebit');
+  charts['ebit'] = new Chart(document.getElementById('ebitChart'), {
+    type:'line',
+    data:{
+      labels:['FY20','FY21','FY22','FY23','FY24','FY25','FY26 Bear','FY26 Base','FY26 Bull'],
+      datasets:[
+        {
+          label:'Adjusted EBIT Margin %',
+          data:[15.1, 15.0, 13.6, 15.5, 11.7, 12.2, null, null, null],
+          borderColor: RED,
+          backgroundColor: RED3,
+          fill: false,
+          borderWidth: 2,
+          pointRadius: 3
+        },
+        {
+          label:'FY2026 Scenario',
+          data:[null, null, null, null, null, 12.2, 12.3, 12.6, 13.0],
+          borderColor: GREEN,
+          backgroundColor: 'transparent',
+          borderWidth: 2,
+          borderDash:[5,3],
+          pointRadius: 3
+        }
+      ]
+    },
+    options:{
+      responsive:true,
+      maintainAspectRatio:false,
+      plugins:{legend:{labels:{color:'#6b6b80',boxWidth:10,padding:12}}},
+      scales:{
+        y:{ticks:{callback:v=>v+'%'},min:11,max:16,grid:{color:'rgba(26,79,214,0.07)'}},
+        x:{grid:{display:false}}
+      }
+    }
+  });
+}
 
   // ── COST CHARTS ──
   if(document.getElementById('costDonutChart') && document.getElementById('tab-cost').classList.contains('active')) {
